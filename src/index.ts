@@ -1,3 +1,5 @@
+import Server from "./models/server";
+import dotenv from 'dotenv';
+dotenv.config();
 
-const nombre:string = 'jesus oyola cfx';
-console.log(nombre)
+const server = new Server();
