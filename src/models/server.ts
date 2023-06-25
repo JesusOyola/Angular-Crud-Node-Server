@@ -3,6 +3,8 @@ import cors from 'cors';
 import routesProducto from "../routes/producto";
 import routesUser from "../routes/user"
 import db from "../db/connection";
+import Producto from "./producto";
+import User from "./usuario";
 
 
 
@@ -46,7 +48,9 @@ class Server {
 
   async dbConnect(){
     try {
-      await db.authenticate();
+      //await db.authenticate();
+      await Producto.sync();
+      await User.sync();
     console.log("BASE DE DATOS CONECTADA")
     } catch (error) {
       console.log("Error al intentar conectarse a la base de datos")

@@ -16,7 +16,8 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const producto_1 = __importDefault(require("../routes/producto"));
 const user_1 = __importDefault(require("../routes/user"));
-const connection_1 = __importDefault(require("../db/connection"));
+const producto_2 = __importDefault(require("./producto"));
+const usuario_1 = __importDefault(require("./usuario"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -49,7 +50,9 @@ class Server {
     dbConnect() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield connection_1.default.authenticate();
+                //await db.authenticate();
+                yield producto_2.default.sync();
+                yield usuario_1.default.sync();
                 console.log("BASE DE DATOS CONECTADA");
             }
             catch (error) {
