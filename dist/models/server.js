@@ -35,11 +35,11 @@ class Server {
     routes() {
         this.app.get("/", (req, res) => {
             res.json({
-                msg: "API Working"
+                msg: "API Working",
             });
         });
-        this.app.use('/api/productos', producto_1.default);
-        this.app.use('/api/users', user_1.default);
+        this.app.use("/api/productos", producto_1.default);
+        this.app.use("/api/users", user_1.default);
     }
     midlewares() {
         /* Parseamos el body, para que lo pueda leer */

@@ -8,8 +8,8 @@ const validateToken =  (
 ) => {
   const headerToken =  req.headers['authorization']
 
-  console.log("hola",headerToken)
-  console.log("hola",req)
+  console.log(headerToken)
+  
 
   if (headerToken != undefined && headerToken.startsWith("Bearer ")) {
     // Tiene token
