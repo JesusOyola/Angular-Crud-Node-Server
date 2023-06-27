@@ -1,22 +1,22 @@
 import { Request, Response, NextFunction } from "express"
 import jwt from "jsonwebtoken"
 
-const validateToken = (
+const validateToken =  (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const headerToken = req.headers["authorization"]
+  const headerToken =  req.headers['authorization']
 
-  console.log(headerToken)
+  console.log("hola",headerToken)
+  console.log("hola",req)
 
   if (headerToken != undefined && headerToken.startsWith("Bearer ")) {
     // Tiene token
-
     try {
       const bearerToken = headerToken.slice(7)
 
-      jwt.verify(bearerToken, process.env.SECRET_KEY || "pepito123")
+       jwt.verify(bearerToken, process.env.SECRET_KEY || "pepito123")
 
       next()
     } catch (error) {
@@ -31,4 +31,4 @@ const validateToken = (
   }
 }
 
-export default validateToken
+export default validateToken;

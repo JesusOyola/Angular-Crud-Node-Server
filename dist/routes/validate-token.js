@@ -5,8 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const validateToken = (req, res, next) => {
-    const headerToken = req.headers["authorization"];
-    console.log(headerToken);
+    const headerToken = req.headers['authorization'];
+    console.log("hola", headerToken);
+    console.log("hola", req);
     if (headerToken != undefined && headerToken.startsWith("Bearer ")) {
         // Tiene token
         try {
